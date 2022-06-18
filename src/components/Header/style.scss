@@ -1,0 +1,43 @@
+@import '../../colors';
+
+header{
+    padding: 5rem;
+    display: flex;
+    justify-content: space-between;
+    font-family: Poppins, sans-serif;
+    background-color: $background;
+    h4{
+        color: #fff;
+        font-weight: 300;
+    }
+    h1{
+        color: $primary;
+    }
+
+    .search{
+        display: flex;
+
+        button{
+            background-color: $backcard;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            height: 3.43rem;
+            cursor: pointer;
+            img{
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+        }
+        input{
+            width: 27.124rem;
+            height: 3.43rem;
+            border-radius: 0 50px 50px 0;
+            border: none;
+            background-color: $backcard;
+            color: #fff;
+            font-size: 1rem;
+            padding-left: 1rem;
+            outline: none;
+        }
+    }
+}
