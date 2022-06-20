@@ -12,7 +12,7 @@ export const App = () => {
   const carousel = useRef(null)
 
   const loadPokemons = async () => {
-    const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=9')
+    const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=150')
     const data = await res.json()
 
     const createPokemonObject = (result) => {
@@ -46,8 +46,8 @@ export const App = () => {
     <div className='container'>
       <Header />
       
-      <div className='pokedex' ref={carousel}>
-        <div className='block'>
+      <div className='pokedex' >
+        <section className='pokebox' ref={carousel}>
           {allPokemons.map((item, index) => (
             <Pokecard 
             name={item.name}
@@ -58,8 +58,12 @@ export const App = () => {
             xp={item.base_experience}
             />
           ))}
-        </div>
+        </section>
+        <div className='control'>
+            <button  onClick={handleLeftCick}><img src={left} alt="" /></button>
+            <button onClick={handleRightClick}><img src={right} alt="" /></button>
+          </div>
       </div>
     </div>
   )
-}
+} 
