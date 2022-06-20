@@ -1,30 +1,35 @@
+import React from 'react'
+
 import './style.scss'
 
-export const Pokecard = ({name, type, img}) => {
+export const Pokecard = ({name,image, type, id,weight, xp}) => {
     return (
-        <div className='pokecard'>
-            <div className='pokemon'>
-                <img src={img} alt="" />
-            </div>
-            <div className='pokename'>
-                <h4>{name}</h4>
-                <img src="" alt="" />
-                <img src="" alt="" />
-            </div>
-            <div className='pokeinfo'>
+        <div className='card'>
+            <section className='pokemon'>
                 <div>
+                    <img src={image} alt="" />
+                </div>
+
+                <div className='name-type'>
+                    <p>{name}</p>
+                    <span> </span>
+                </div>
+            </section>
+
+            <section className='info'>
+                <div className='xp'>
                     <p>XP</p>
-                    <p>64</p>
+                    <p>{xp}</p>
                 </div>
-                <div>
+                <div className='weight'>
                     <p>Weight</p>
-                    <p>69</p>
+                    <p>{weight}</p>
                 </div>
-            </div>
-            <div className='idendity'>
-                <p>#001</p>
+            </section>
+
+            <div className='id'>
+                #{id < 10 ? '00' + id : '0' + id}
             </div>
         </div>
-        
     )
 }

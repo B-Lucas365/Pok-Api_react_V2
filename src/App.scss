@@ -11,4 +11,17 @@ body{
 .container{
     width: 85%;
     margin: auto;
+    .pokedex{
+        display: flex;
+        justify-content: center;
+        .block{
+            display: flex;
+            padding: 5rem;
+            gap: 1.75rem;
+            overflow: auto;
+            scroll-behavior: smooth;
+            // scrollbar-width: none;
+        }
+    }
+    
 }

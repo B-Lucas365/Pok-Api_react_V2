@@ -1,3 +1,64 @@
-* {
+@import '../../colors';
+
+.card{
+    font-family: poppins, sans-serif;
     color: #fff;
+    background: $backcard;
+    border-radius: 30px;
+    padding: 0 2.70rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .pokemon{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img{
+            margin-top: -3rem;
+            width:9.21rem ;
+            height: 141.36px;
+        }
+
+        .name-type{
+            display: flex;
+        }
+    }
+
+    .info{
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2.663rem;
+        margin-bottom: 2.53rem;
+        .xp{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            :nth-child(2){
+                color:$primary ;
+            }
+        }
+
+        .weight{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            :nth-child(2){
+                color:$primary ;
+            }
+        }
+    }
+
+    .id{
+        background: $primary;
+        color: black;
+        text-align: center;
+        border-radius: 30px;
+        width: 119.34px;
+        padding: 7px;
+        margin-bottom: -.8rem;
+    }
 }

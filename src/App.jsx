@@ -1,18 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 import {Header} from './components/Header'
 import {Pokecard} from './components/Pokecard'
 import './App.scss'
+import left from './assets/left.svg'
+import right from './assets/right.svg'
+
 
 export const App = () => {
   const [allPokemons, setAllPokemons] = useState([])
-  const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=9')
+  const carousel = useRef(null)
 
   const loadPokemons = async () => {
-    const res = await fetch(loadMore)
+    const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=9')
     const data = await res.json()
-
-    setLoadMore(data.next)
 
     const createPokemonObject = (result) => {
       result.forEach(async (pokemon) => {
@@ -23,26 +24,41 @@ export const App = () => {
       })
     }
     createPokemonObject(data.results)
-    await console.log(allPokemons)
   }
 
   useEffect(() => {
     loadPokemons()
   }, [])
 
+  const handleLeftCick = (e) => {
+    e.preventDefault()
+    carousel.current.scrollLeft -= carousel.current.offsetWidth
+
+  }
+
+  const handleRightClick = (e) => {
+    e.preventDefault()
+    carousel.current.scrollLeft += carousel.current.offsetWidth
+
+  }
+
   return(
     <div className='container'>
       <Header />
       
-      <div className='pokedex'>
-        {allPokemons.map((item, index) => {
-          <Pokecard 
+      <div className='pokedex' ref={carousel}>
+        <div className='block'>
+          {allPokemons.map((item, index) => (
+            <Pokecard 
             name={item.name}
+            image={item.sprites.other.dream_world.front_default}
             type={item.types[0].type.name}
-            img={item.sprites.other.dream_world.front_default}
-          />
-        })}
-        
+            id={item.id}
+            weight={item.weight}
+            xp={item.base_experience}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )
