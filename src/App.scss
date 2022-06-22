@@ -14,32 +14,7 @@ body{
 
     .pokedex{ 
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        .control{
-            display: flex;
-            justify-content: space-between;
-            width: 107%;
-            position: absolute;
-            top: 50%;
-            background-color: transparent;
-            button{
-                background: transparent;
-                border: none;
-                cursor: pointer;
-            }
-        }
-        .pokebox{
-            display: flex;
-            padding: 5rem  0;
-            gap: 1.75rem;
-            overflow: auto;
-            width: 85vw;
-            scroll-behavior: smooth;
-            scrollbar-width: none;
-        }
-        
+        padding: 2rem ;
+        width: 85vw;
     }
-    
 }
